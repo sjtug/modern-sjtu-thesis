@@ -1,10 +1,10 @@
 # 上海交通大学学位论文 modern-sjtu-thesis
 
-这是上海交通大学学位论文的 [Typst 模板](https://typst.app/universe/package/modern-sjtu-thesis)，它能够简洁、快速、持续生成 PDF 格式的毕业论文，现已支持本科、硕士和博士的毕业论文撰写，均参考官方提供的word模板进行开发。
+这是上海交通大学学位论文的 [Typst 模板](https://typst.app/universe/package/modern-sjtu-thesis)，它能够简洁、快速、持续生成 PDF 格式的毕业论文，现已支持本科、硕士和博士的毕业论文撰写，均参考官方提供的 Word 模板进行开发。
 
 ## 使用
 
-如果在使用过程中遇到任何问题，欢迎在 [Issues](https://github.com/tzhtaylor/modern-sjtu-thesis/issues) 中反馈。
+如果在使用过程中遇到任何问题，欢迎在 [Issues](https://github.com/sjtug/modern-sjtu-thesis/issues) 中反馈。
 
 ### VS Code 本地编辑（推荐）
 
@@ -22,7 +22,7 @@
 
 1. 在 VS Code 中安装 [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) 插件，负责语法高亮, 错误检查和 PDF 预览。
 
-2. 运行命令 `git clone https://github.com/tzhTaylor/modern-sjtu-thesis`，克隆本仓库到本地。
+2. 运行命令 `git clone https://github.com/sjtug/modern-sjtu-thesis`，克隆本仓库到本地。
 
 3. 最后用 VS Code 打开目录，打开 `template/thesis.typ` 文件，按下 `Ctrl + K V`(Windows) / `Command + K V`(MacOS) 或者是点击右上角的按钮进行实时编辑和预览。
 
@@ -32,9 +32,9 @@
 
 Typst 提供了官方的 Web App，支持像 Overleaf 一样在线编辑。
 
-实际上，我们只需要在 [Web App](https://typst.app/?template=modern-sjtu-thesis&version=0.5.1) 中的 `Start from template` 里选择 `modern-sjtu-thesis`，即可在线创建模板并使用。
+实际上，我们只需要在 [Web App](https://typst.app/?template=modern-sjtu-thesis&version=0.5.2) 中的 `Start from template` 里选择 `modern-sjtu-thesis`，即可在线创建模板并使用。
 
-你需要手动下载 [fonts.zip](https://github.com/tzhtaylor/modern-sjtu-thesis/releases/download/v0.5.1/fonts.zip) 然后手动上传 fonts 文件夹到项目中，否则会**导致字体显示错误**！
+你需要手动下载 [fonts.zip](https://github.com/sjtug/modern-sjtu-thesis/releases/download/v0.5.2/fonts.zip) 然后手动上传 fonts 文件夹到项目中，否则会**导致字体显示错误**！
 
 ## Typst 快速入门
 
@@ -83,13 +83,13 @@ Typst 提供了官方的 Web App，支持像 Overleaf 一样在线编辑。
 
 如果对 Typst 论文撰写感兴趣的话，可以从开题报告和中期报告模板开始尝试。
 
-- [研究生开题报告 Typst 模板](https://github.com/tzhTaylor/typst-sjtu-thesis-proposal)
+- [研究生开题报告 Typst 模板](https://github.com/tzhtaylor/typst-sjtu-thesis-proposal)
 
-- [硕士研究生中期报告 Typst 模板](https://github.com/tzhTaylor/typst-sjtu-thesis-midterm)
+- [硕士研究生中期报告 Typst 模板](https://github.com/tzhtaylor/typst-sjtu-thesis-midterm)
 
 如果想要类似于 SJTUBeamer 的幻灯片模板，可以使用我开发的
 
-- [基于 Touying 的上海交通大学 Typst 幻灯片模板](https://github.com/tzhtaylor/touying-sjtu)
+- [基于 Touying 的上海交通大学 Typst 幻灯片模板](https://github.com/sjtug/touying-sjtu)
 
 如果想要在平时的数学作业中使用 Typst，但对于 Typst 相关的数学语法不太熟悉，可以参考我维护的
 
@@ -167,5 +167,7 @@ This project is licensed under the MIT License.
 
 It also includes third-party components licensed under other open source licenses,
 including the Apache License 2.0 and MIT License.
+
+The school emblem image (`assets/sjtu-logo.pdf`) is copyrighted by Shanghai Jiao Tong University and may be used solely for academic purposes by current students and faculty.
 
 See the `third_party/` directory for details on third-party components and their licenses.
