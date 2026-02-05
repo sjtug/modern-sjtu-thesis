@@ -109,8 +109,8 @@
 
   show: show-theorion
 
-  show cite: set text(font: "Times New Roman")
-  show smartquote: set text(font: "Times New Roman")
+  show cite: set text(font: ziti.en-serif)
+  show smartquote: set text(font: ziti.en-serif)
 
   show raw: set text(font: ziti.dengkuan)
 

@@ -6,6 +6,7 @@
   twoside,
   anonymous,
   info,
+  ziti,
   doc,
   preface,
   mainmatter,
@@ -30,7 +31,7 @@
   twoside: false, // 双面模式
   print: false, // 打印模式, 设置为 true 时，根据奇偶页调整页边距
   anonymous: false, // 盲审模式
-  // font-set: "mac", // 字体设置: "mac" | "windows" | "webapp", 根据系统设定字体集，可消除未知字体警告
+  // font-set: "mac", // 字体集设置: "mac" | "windows" | "linux" | "webapp" | "webapp-upload", 根据系统设定字体集，可消除未知字体警告
   info: (
     student-id: "520XXXXXXXX",
     name: "张三",

@@ -11,7 +11,7 @@
   set text(font: ziti.songti, size: zihao.xiaosi)
 
   if doctype == "bachelor" {
-    heading(level: 1)[#text(font: "Arial")[ABSTRACT]]
+    heading(level: 1)[#text(font: ziti.en-sans)[ABSTRACT]]
   } else {
     heading(level: 1)[Abstract]
   }

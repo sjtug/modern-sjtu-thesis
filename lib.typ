@@ -51,14 +51,17 @@
   fonts = {
     if font-set == "webapp" {
       (
+        en-serif: "TeX Gyre Termes",
+        en-sans: "TeX Gyre Heros",
         songti: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "Noto Serif CJK SC"),
         heiti: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "Noto Sans CJK SC"),
-        kaiti: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "TW-MOE-Std-Kai"),
         dengkuan: ("Fira Mono", (name: "Noto Sans CJK SC", covers: regex("\p{script=Han}"))),
         math: ("New Computer Modern Math", (name: "Noto Serif CJK SC", covers: regex("\p{script=Han}"))),
       )
     } else if font-set == "mac" {
       (
+        en-serif: "Times New Roman",
+        en-sans: "Arial",
         songti: ((name: "Times New Roman", covers: "latin-in-cjk"), "Songti SC"),
         heiti: ((name: "Times New Roman", covers: "latin-in-cjk"), "Heiti SC"),
         kaiti: ((name: "Times New Roman", covers: "latin-in-cjk"), "Kaiti SC"),
@@ -68,12 +71,35 @@
       )
     } else if font-set == "windows" {
       (
+        en-serif: "Times New Roman",
+        en-sans: "Arial",
         songti: ((name: "Times New Roman", covers: "latin-in-cjk"), "SimSun"),
         heiti: ((name: "Times New Roman", covers: "latin-in-cjk"), "SimHei"),
         kaiti: ((name: "Times New Roman", covers: "latin-in-cjk"), "KaiTi"),
         fangsong: ((name: "Times New Roman", covers: "latin-in-cjk"), "FangSong"),
-        dengkuan: ("Cascadia Code", (name: "SimHei", covers: regex("\p{script=Han}"))),
+        dengkuan: ("Consolas", (name: "SimHei", covers: regex("\p{script=Han}"))),
         math: ("Cambria Math", (name: "SimSun", covers: regex("\p{script=Han}"))),
+      )
+    } else if font-set == "webapp-upload" {
+      (
+        en-serif: "TeX Gyre Termes",
+        en-sans: "TeX Gyre Heros",
+        songti: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "ST Songti"),
+        heiti: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "SimHei"),
+        kaiti: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "Kaiti"),
+        fangsong: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "FangSong"),
+        dengkuan: ("Fira Mono", (name: "SimHei", covers: regex("\p{script=Han}"))),
+        math: ("New Computer Modern Math", (name: "ST Songti", covers: regex("\p{script=Han}"))),
+      )
+    } else if font-set == "linux" {
+      (
+        en-serif: "Liberation Serif",
+        en-sans: "Liberation Sans",
+        songti: ((name: "Liberation Serif", covers: "latin-in-cjk"), "Noto Serif CJK SC"),
+        heiti: ((name: "Liberation Serif", covers: "latin-in-cjk"), "Noto Sans CJK SC"),
+        kaiti: ((name: "Liberation Serif", covers: "latin-in-cjk"), "TW-MOE-Std-Kai"),
+        dengkuan: ("Liberation Mono", (name: "Noto Sans CJK SC", covers: regex("\p{script=Han}"))),
+        math: ("Latin Modern Math", (name: "Noto Serif CJK SC", covers: regex("\p{script=Han}"))),
       )
     } else {
       fonts
@@ -88,6 +114,7 @@
     print: print,
     info: info,
     key-to-zh: key-to-zh,
+    ziti: fonts,
     doc: (..args) => {
       doc(
         ..args,

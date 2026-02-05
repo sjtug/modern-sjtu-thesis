@@ -21,13 +21,12 @@
 
   counter(page).update(1)
 
-
   show: no-numbering-page-header.with(
     doctype: doctype,
     bachelor-sum: true,
     ziti: ziti,
   )
-  show: no-numbering-first-heading
+  show: no-numbering-first-heading.with(ziti: ziti)
 
   heading(title, outlined: false)
 
