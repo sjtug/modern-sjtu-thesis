@@ -84,12 +84,12 @@
       (
         en-serif: "TeX Gyre Termes",
         en-sans: "TeX Gyre Heros",
-        songti: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "ST Songti"),
+        songti: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "SimSun"),
         heiti: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "SimHei"),
         kaiti: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "Kaiti"),
         fangsong: ((name: "TeX Gyre Termes", covers: "latin-in-cjk"), "FangSong"),
         dengkuan: ("Fira Mono", (name: "SimHei", covers: regex("\p{script=Han}"))),
-        math: ("New Computer Modern Math", (name: "ST Songti", covers: regex("\p{script=Han}"))),
+        math: ("New Computer Modern Math", (name: "SimSun", covers: regex("\p{script=Han}"))),
       )
     } else if font-set == "linux" {
       (
