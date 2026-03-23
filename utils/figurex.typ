@@ -123,9 +123,9 @@
   let prefix = "algox-none-label"
   let number = query(figure.where(kind: "algorithm").before(here()))
   let label-name = if label-name == "" { str("~" + prefix + "-" + str(number.len())) } else { label-name }
+  let nxt = state("algox" + label-name, false)
   let new-label = label(label-name)
   let head-label = label("algo:" + label-name)
-  let nxt = state("algox" + label-name, false)
   set par(leading: 23pt - 1em, spacing: 23pt - 1em)
   show figure: set block(width: 100%)
   show figure.caption: set align(left)
@@ -153,22 +153,18 @@
               v(-0.3em)
               [
                 #figure(
-                  [],
-                  kind: "algorithm",
-                  caption: caption,
-                  supplement: [算法],
-                )#new-label
-                #if caption-en != none {
-                  v(-0.2em)
                   figure(
-                    [],
+                    { if caption-en != none { v(.5em) } else { v(-0.5em) } },
                     kind: "algorithm-en",
                     caption: caption-en,
                     supplement: [Algorithm],
-                  )
-                  v(-0.2em)
-                }
-                #v(0.5em)
+                    gap: 1em,
+                  ),
+                  kind: "algorithm",
+                  caption: caption,
+                  supplement: [算法],
+                  gap: 1em,
+                )#new-label
               ]
               nxt.update(true)
             }
