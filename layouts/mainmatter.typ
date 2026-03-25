@@ -1,5 +1,5 @@
 #import "@preview/i-figured:0.2.4"
-#import "@preview/theorion:0.4.1": *
+#import "@preview/theorion:0.5.0": *
 #import "../utils/theoriom.typ": *
 #import "@preview/equate:0.3.2": *
 #import "../utils/style.typ": zihao

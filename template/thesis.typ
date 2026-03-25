@@ -615,7 +615,7 @@ $
 
 `lilaq` 是一个强大的 Typst 绘图库，可以绘制各种类型的数据图。
 
-#import "@preview/lilaq:0.5.0" as lq
+#import "@preview/lilaq:0.6.0" as lq
 
 #let xs = (0, 1, 2, 3, 4)
 #let (y1, y2) = ((1, 2, 3, 4, 5), (5, 3, 7, 9, 3))

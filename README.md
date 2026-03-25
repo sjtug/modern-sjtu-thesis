@@ -32,7 +32,7 @@
 
 Typst 提供了官方的 Web App，支持像 Overleaf 一样在线编辑。
 
-实际上，我们只需要在 [Web App](https://typst.app/?template=modern-sjtu-thesis&version=0.6.0) 中的 `Start from template` 里选择 `modern-sjtu-thesis`，即可在线创建模板并使用。
+实际上，我们只需要在 [Web App](https://typst.app/?template=modern-sjtu-thesis&version=0.6.1) 中的 `Start from template` 里选择 `modern-sjtu-thesis`，即可在线创建模板并使用。
 
 ## Typst 快速入门
 
@@ -87,14 +87,14 @@ Typst 提供了官方的 Web App，支持像 Overleaf 一样在线编辑。
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **en-serif** | TeX Gyre Termes | Times New Roman | Times New Roman | Liberation Serif | TeX Gyre Termes |
 | **en-sans** | TeX Gyre Heros | Arial | Arial | Liberation Sans | TeX Gyre Heros |
-| **songti** | Noto Serif CJK SC | Songti SC | SimSun | Noto Serif CJK SC | ST Songti |
+| **songti** | Noto Serif CJK SC | Songti SC | SimSun | Noto Serif CJK SC | SimSun |
 | **heiti** | Noto Sans CJK SC | Heiti SC | SimHei | Noto Sans CJK SC | SimHei |
 | **kaiti** | *(未定义)* | Kaiti SC | KaiTi | *(未定义)* | Kaiti |
-| **fangsong** | *(未定义)* | FangSong SC | FangSong | *(未定义)* | FangSong |
+| **fangsong** | *(未定义)* | STFangSong | FangSong | *(未定义)* | FangSong |
 | **dengkuan** | Fira Mono | Menlo | Consolas | Liberation Mono | Fira Mono |
 | **math** | New Computer Modern Math | STIX Two Math | Cambria Math | Latin Modern Math | New Computer Modern Math |
 
-如果对 Web APP 自带的字体配置不满意，可以下载 [fonts.zip](https://github.com/sjtug/modern-sjtu-thesis/releases/download/v0.6.0/fonts.zip) 然后手动上传 fonts 文件夹到项目中，并将 `font-set` 设置为 `webapp-upload`，以获得与本地相同的字体效果。
+如果对 Web APP 自带的字体配置不满意，可以下载 [fonts.zip](https://github.com/sjtug/modern-sjtu-thesis/releases/download/v0.6.1/fonts.zip) 然后手动上传 fonts 文件夹到项目中，并将 `font-set` 设置为 `webapp-upload`，以获得与本地相同的字体效果。
 
 ### 字体自定义设置
 
