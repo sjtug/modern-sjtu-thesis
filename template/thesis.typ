@@ -167,7 +167,7 @@
 - 自然对数的底 $ee$： `upright(e)`
 - 虚数单位 $ii$： `upright(i)`
 
-公式应另起一行居中排版。公式后应注明编号，按章顺序编排，编号右端对齐，如@equation 所示。
+公式应另起一行居中排版。公式后应注明编号，按章顺序编排，编号右端对齐，如@equation 所示。公式的编号方式由标签的位置决定：`<label>` 写在 `$$` 外时，整个公式只编一个号，多行公式的编号上下居中；公式没有 `<label>`，或 `<label>` 写在某一行的行尾时，每一行都单独编号。标签书写时无需添加前缀，引用时必须写 `@eq:<label>`。
 
 $
   ee^(ii ppi) + 1 = 0,
@@ -187,20 +187,20 @@ $
   )
 $
 
-公式较长时最好在等号“$=$”处转行。子公式的引用请在该行公式后添加 `#<subequation>` 引用标签，如@subequation 所示。如果有某行公式不需要编号，请使用 `#<equate:revoke>` 标签。（此标签由 `equate` 包定义，目前不可自定义）
+公式较长时最好在等号“$=$”处转行。子公式的引用请在该行公式后添加 `#<subequation>` 引用标签，引用时写 `@eq:subequation`，如@eq:subequation 所示。如果有某行公式不需要编号，请使用 `#<revoke>` 标签。
 
 $
-    & I(X_3; X_4) - I(X_3; X_4 | X_1) - I(X_3; X_4 | X_2) #<equate:revoke> \
+    & I(X_3; X_4) - I(X_3; X_4 | X_1) - I(X_3; X_4 | X_2) #<revoke> \
   = & [I(X_3; X_4) - I(X_3; X_4 | X_1)] - I(X_3; X_4 | tilde(X_2)) \
   = & I(X_1; X_3; X_4) - I(X_3; X_4 | tilde(X_2)). #<subequation>
 $
 
-如果在等号处转行难以实现，也可在 $+$、$-$、$times$、$div$ 运算符号处转行，转行时运算符号仅书写于转行式前，不重复书写。
+如果在等号处转行难以实现，也可在 $+$、$-$、$times$、$div$ 运算符号处转行，转行时运算符号仅书写于转行式前，不重复书写。下面的公式将 `<label>` 写在 `$$` 外，因此整个公式只编一个号，编号在公式块右侧上下居中，引用为 @eq:Bochner-Weitzenböck。
 
 $
-  1 / 2 Delta(f_(i j) f^(i j)) = 2 med &(sum_(i<j) x_(i j) (sigma_i - sigma_j)^2 + f_(i j) nabla_j nabla_i (Delta f) #<equate:revoke> \
+  1 / 2 Delta(f_(i j) f^(i j)) = 2 med &(sum_(i<j) x_(i j) (sigma_i - sigma_j)^2 + f_(i j) nabla_j nabla_i (Delta f) \
     &+ nabla_k f_(i j) nabla^k f^(i j) + f^(i j) f^k [2 nabla_i R_(j k) - nabla_k R_(i j)]).
-$
+$ <Bochner-Weitzenböck>
 
 === 定理环境
 
@@ -693,5 +693,3 @@ $
     patents: ("第一发明人, 永动机[P], 专利申请号202510149890.0.",),
   )
 ]
-
-

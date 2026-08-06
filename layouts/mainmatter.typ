@@ -1,11 +1,11 @@
 #import "@preview/i-figured:0.2.4"
 #import "@preview/theorion:0.6.0": *
 #import "../utils/theoriom.typ": *
-#import "@preview/equate:0.3.3": *
 #import "../utils/style.typ": zihao
 #import "../utils/header.typ": main-text-page-header
 #import "../utils/heading.typ": main-text-first-heading, other-heading
 #import "../utils/figurex.typ": preset
+#import "../utils/equationx.typ": equationx-ref, equationx
 
 #let mainmatter(
   doctype: "master",
@@ -47,57 +47,17 @@
   show figure: i-figured.show-figure.with(extra-prefixes: (image: "img:", algorithm: "algo:"), numbering: if doctype
     == "bachelor" { "1-1" } else { "1.1" })
 
-  // show math.equation: i-figured.show-equation.with(numbering: if doctype == "bachelor" { "(1-1)" } else { "(1.1)" })
-
-  set math.equation(numbering: (..nums) => numbering(
-    if doctype == "bachelor" { "(1-1a)" } else { "(1.1a)" },
-    counter(heading).get().first(),
-    ..nums,
-  ))
-  show: equate.with(breakable: true, sub-numbering: false)
-  let equation-label(
-    heading,
-    equation,
-  ) = [(#numbering("1", heading)#h(0em)#if doctype == "bachelor" [-] else [.]#equation)]
-  let appendix-equation-label(
-    heading,
-    equation,
-  ) = [(#numbering("A", heading)#h(0em)#if doctype == "bachelor" [-] else [.]#equation)]
+  show: equationx.with(numbering: if doctype == "bachelor" { "(1-1)" } else { "(1.1)" })
   show ref: it => {
     if it.element == none {
       return it
     }
+    let eq = equationx-ref(it, default-numbering: if doctype == "bachelor" { "(1-1)" } else { "(1.1)" })
+    if eq != none {
+      return eq
+    }
     let f = it.element.func()
-    let h1 = query(heading.where().before(it.target)).last()
-    if f == math.equation {
-      let equation-location = query(it.target).first().location()
-      let heading-index = counter(heading).at(equation-location).at(0)
-      let equation-index = counter(math.equation).at(equation-location).at(0)
-      link(
-        it.target,
-        it.element.supplement
-          + [ ]
-          + if h1.supplement == [附录] {
-            appendix-equation-label(heading-index, equation-index)
-          } else {
-            equation-label(heading-index, equation-index)
-          },
-      )
-    } else if it.element.supplement == [公式] {
-      let equation-location = query(it.target).first().location()
-      let heading-index = counter(heading).at(equation-location).at(0)
-      let equation-index = counter(math.equation).at(equation-location).at(0) - 1
-      link(
-        it.target,
-        it.element.supplement
-          + [ ]
-          + if h1.supplement == [附录] {
-            appendix-equation-label(heading-index, equation-index)
-          } else {
-            equation-label(heading-index, equation-index)
-          },
-      )
-    } else if f == heading and it.element.level > 1 and it.element.supplement != [附录] {
+    if f == heading and it.element.level > 1 and it.element.supplement != [附录] {
       link(it.target, [第] + h(.3em) + it + [节])
     } else if f == heading and it.element.level == 1 and it.element.supplement == [附录] {
       let equation-location = query(it.target).first().location()

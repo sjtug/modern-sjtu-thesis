@@ -1,8 +1,7 @@
 #import "../utils/header.typ": appendix-page-header
 #import "../utils/heading.typ": appendix-first-heading, other-heading
 #import "@preview/i-figured:0.2.4"
-#import "@preview/numbly:0.1.0": numbly
-#import "@preview/equate:0.3.3": equate
+#import "../utils/equationx.typ": equationx-ref, equationx
 
 #let appendix(
   doctype: "master",
@@ -19,64 +18,16 @@
     == "bachelor" { "A-1" } else { "A.1" })
   set figure(outlined: false)
 
-  // show math.equation: i-figured.show-equation.with(
-  //   numbering: if doctype == "bachelor" { numbly("(A{1})", "(A{1}-{2})") } else { "(A.1)" },
-  // )
-
-  set math.equation(numbering: (..nums) => numbering(
-    if doctype == "bachelor" { "(A-1a)" } else { "(A.1a)" },
-    counter(heading).get().first(),
-    ..nums,
-  ))
-  show: equate.with(breakable: true, sub-numbering: false)
-  let equation-label(
-    heading,
-    equation,
-  ) = [(#numbering("A", heading)#h(0em)#if doctype == "bachelor" [-] else [.]#equation)]
-  let mainmatter-equation-label(
-    heading,
-    equation,
-  ) = [(#numbering("1", heading)#h(0em)#if doctype == "bachelor" [-] else [.]#equation)]
+  show: equationx.with(numbering: if doctype == "bachelor" { "(A-1)" } else { "(A.1)" })
   show ref: it => {
     if it.element == none {
       return it
     }
-    let f = it.element.func()
-    let h1 = counter(heading.where(level: 1, supplement: [附录]).before(it.target)).get().first()
-    let main-h1 = counter(heading.where(level: 1).before(it.target)).get().first()
-    let h1-last = query(heading.where().before(it.target)).last()
-    if f == math.equation {
-      let equation-location = query(it.target).first().location()
-      let heading-index = counter(heading).at(equation-location).at(0)
-      let equation-index = counter(math.equation).at(equation-location).at(0)
-      link(
-        it.target,
-        it.element.supplement
-          + [ ]
-          + if h1-last.supplement == [附录] {
-            equation-label(heading-index, equation-index)
-          } else {
-            mainmatter-equation-label(heading-index, equation-index)
-          },
-      )
-    } else if it.element.supplement == [公式] {
-      let equation-location = query(it.target).first().location()
-      let heading-index = counter(heading).at(equation-location).at(0)
-      let equation-index = counter(math.equation).at(equation-location).at(0) - 1
-      let eq = query(it.target).first().body.value
-      link(
-        it.target,
-        it.element.supplement
-          + [ ]
-          + if h1-last.supplement == [附录] {
-            equation-label(heading-index, equation-index)
-          } else {
-            mainmatter-equation-label(heading-index, equation-index)
-          },
-      )
-    } else {
-      it
+    let eq = equationx-ref(it, default-numbering: if doctype == "bachelor" { "(A-1)" } else { "(A.1)" })
+    if eq != none {
+      return eq
     }
+    it
   }
 
   show figure.where(kind: "subimage"): it => {
