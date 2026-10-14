@@ -4,7 +4,7 @@
 #import "../utils/style.typ": zihao
 #import "../utils/header.typ": main-text-page-header
 #import "../utils/heading.typ": main-text-first-heading, other-heading
-#import "../utils/figurex.typ": preset
+#import "../utils/figurex.typ": preset, show-subimages
 #import "../utils/equationx.typ": equationx-ref, equationx
 
 #let mainmatter(
@@ -78,40 +78,7 @@
 
   show raw: set text(font: ziti.dengkuan)
 
-  show figure.where(kind: "subimage"): it => {
-    if it.kind == "subimage" {
-      let q = query(figure.where(outlined: true).before(it.location())).last()
-      [
-        #figure(
-          it.body,
-          caption: it.counter.display("(a)") + " " + it.caption.body,
-          kind: it.kind + "_",
-          supplement: it.supplement,
-          outlined: it.outlined,
-          numbering: "(a)",
-          gap: 1em,
-        )#label(str(q.label) + ":" + str(it.label))
-      ]
-    }
-  }
-
-  show figure.where(kind: "subimage-en"): it => {
-    if it.kind == "subimage-en" {
-      let q = query(figure.where(outlined: true).before(it.location())).last()
-      [
-        #figure(
-          it.body,
-          caption: if it.caption != none { it.counter.display("(a)") + " " + it.caption.body } else { none },
-          kind: it.kind + "_",
-          supplement: it.supplement,
-          outlined: it.outlined,
-          numbering: "(a)",
-          gap: 1em,
-        )
-      ]
-      v(0.5em)
-    }
-  }
+  show: show-subimages.with(english-gap: true)
 
   context [
     #metadata(state("total-words-cjk").final()) <total-words>

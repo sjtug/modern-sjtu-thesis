@@ -9,7 +9,7 @@
  * Copyright (c) 2025 Juntong Chen. All rights reserved.
  */
 
-#import "@preview/wordometer:0.1.5": *
+#import "@preview/wordometer:0.1.6": *
 
 #let word-count-cjk(content, ..options) = {
   let stats = word-count-of(

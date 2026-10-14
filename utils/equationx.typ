@@ -12,7 +12,7 @@
  * (MIT License, Copyright (c) 2024-2026 Eric Biedert)。
  */
 
-#import "@preview/unichar:0.4.0"
+#import "@preview/unichar:0.4.1"
 
 // 内置 numbering 函数的别名（参数 numbering 为编号模式字符串，会遮蔽内置函数）
 #let _typst-numbering = numbering

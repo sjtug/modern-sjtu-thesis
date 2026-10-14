@@ -16,13 +16,55 @@
 ) = {
   show ref: it => {
     if it.element != none and it.element.func() == figure and it.element.kind == "subimage_" {
-      let q = query(figure.where(outlined: true).before(it.target)).last()
-      ref(q.label)
-    }
-    if it.element != none and it.element.func() == figure and it.element.kind == "subimage_" {
       "(" + it + ")"
     } else { it }
   }
+  body
+}
+
+#let show-subimages(
+  body,
+  english-gap: false,
+) = {
+  show figure.where(kind: "subimage"): it => {
+    let parent = query(figure.where(outlined: true).before(it.location())).last()
+    let generated-label = if parent != none {
+      str(parent.label) + ":" + str(it.label)
+    } else {
+      str(it.label)
+    }
+    [
+      #figure(
+        it.body,
+        caption: it.counter.display("(a)") + " " + it.caption.body,
+        kind: it.kind + "_",
+        supplement: it.supplement,
+        outlined: it.outlined,
+        numbering: "(a)",
+        gap: 1em,
+      )#label(generated-label)
+    ]
+  }
+
+  show figure.where(kind: "subimage-en"): it => {
+    let result = [
+      #figure(
+        it.body,
+        caption: if it.caption != none {
+          it.counter.display("(a)") + " " + it.caption.body
+        } else {
+          none
+        },
+        kind: it.kind + "_",
+        supplement: it.supplement,
+        outlined: it.outlined,
+        numbering: "(a)",
+        gap: 1em,
+      )
+    ]
+    if english-gap { result + v(0.5em) } else { result }
+  }
+
   body
 }
 
@@ -42,7 +84,6 @@
   column-gutter: auto,
   columns: auto,
   fill: none,
-  gutter: auto,
   inset: 0% + 5pt,
   row-gutter: auto,
   rows: auto,
@@ -51,10 +92,11 @@
   caption-en: none,
   placement: none,
   breakable: true,
+  size: zihao.wuhao,
   label-name: "",
 ) = context {
   set figure.caption(position: top)
-  show table: set text(size: zihao.wuhao)
+  show table: set text(size: size)
   show table: set par(leading: 1em)
   let prefix = "tablex-none-label"
   let number = query(figure.where(kind: "table").before(here()))
@@ -72,6 +114,9 @@
             align: alignment,
             inset: inset,
             stroke: stroke,
+            row-gutter: row-gutter,
+            column-gutter: column-gutter,
+            fill: fill,
             table.header(
               table.cell(
                 colspan: if type(columns) == int { columns } else { columns.len() },

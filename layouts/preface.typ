@@ -1,7 +1,7 @@
 #import "../utils/style.typ": zihao
 #import "../utils/header.typ": no-numbering-page-header
 #import "../utils/heading.typ": no-numbering-first-heading
-#import "@preview/quan:0.2.1": *
+#import "@preview/quan:0.2.2": *
 
 #let preface(
   doctype: "master",
